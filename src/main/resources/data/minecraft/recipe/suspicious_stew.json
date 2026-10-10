@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "suspicious_stew",
+  "ingredients": [
+    {
+      "item": "minecraft:barrier"
+    }
+  ],
+  "result": {
+    "id": "minecraft:suspicious_stew",
+    "count": 1
+  }
+}

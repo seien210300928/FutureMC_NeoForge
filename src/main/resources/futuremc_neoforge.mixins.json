@@ -9,7 +9,10 @@
     "FutureMCSpawnMixin",
     "FutureMCSetBabyMixin",
     "FutureMCBlockSoundMixin",
-    "FutureMCMaceMixin"
+    "FutureMCMaceMixin",
+    "FutureMCEnderPearlPlayerMixin",
+    "FutureMCEnderPearlMixin",
+    "FutureMCSlimeBlockMixin"
   ],
   "client": [
     "FutureMCBabyRendererMixin"
