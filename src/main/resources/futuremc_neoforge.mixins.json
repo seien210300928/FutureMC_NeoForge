@@ -4,8 +4,15 @@
   "package": "org.dpdns.seien.futuremc_neoforge.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "FutureMCAgeableMixin",
+    "FutureMCAgeableBehaviorMixin",
+    "FutureMCSpawnMixin",
+    "FutureMCSetBabyMixin",
+    "FutureMCBlockSoundMixin",
+    "FutureMCMaceMixin"
   ],
   "client": [
+    "FutureMCBabyRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

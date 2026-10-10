@@ -1,19 +1,6 @@
 package org.dpdns.seien.futuremc_neoforge;
 
-import com.mojang.logging.LogUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -26,95 +13,122 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import org.slf4j.Logger;
+import org.dpdns.seien.futuremc_neoforge.futuremc.ModItems;
+import org.dpdns.seien.futuremc_neoforge.futuremc.ModRecipes;
+import org.dpdns.seien.futuremc_neoforge.futuremc.ModSoundEvents;
+import org.dpdns.seien.futuremc_neoforge.futuremc.entity.FutureMCEntityData;
 
-// 此处的值应与 META-INF/neoforge.mods.toml 文件中的条目保持一致
+// 模组入口类。这里的模组 ID 必须与 META-INF/neoforge.mods.toml 中的条目保持一致，
+// FML 会按照注解里的 ID 找到这个类并加载它。
 @Mod(Futuremc_neoforge.MODID)
 public class Futuremc_neoforge {
-    // 在公共位置定义模组 ID（mod id），供所有代码统一引用
+
+    // 模组 ID，在整个项目里统一使用，所有注册表都挂在它下面。
     public static final String MODID = "futuremc_neoforge";
-    // 直接引用一个 slf4j 日志记录器
-    private static final Logger LOGGER = LogUtils.getLogger();
-    // 创建延迟注册表（DeferredRegister）以存放方块，所有方块都将注册在 "futuremc_neoforge" 命名空间下
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
-    // 创建延迟注册表（DeferredRegister）以存放物品，所有物品都将注册在 "futuremc_neoforge" 命名空间下
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
-    // 创建延迟注册表（DeferredRegister）以存放创造模式标签页，所有标签页都将注册在 "futuremc_neoforge" 命名空间下
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    // 创建一个 ID 为 "futuremc_neoforge:example_block" 的新方块，由命名空间与路径组合而成
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
-    // 创建一个 ID 为 "futuremc_neoforge:example_block" 的方块物品（BlockItem），由命名空间与路径组合而成
-    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
+    // 在模组类被加载时就提前准备实体数据访问器。
+    // 幼年标志的访问器是 FutureMCAgeableMixin 合并进 LivingEntity 的静态字段，
+    // 由 JVM 保证在父类初始化阶段完成分配，不需要在这里处理。
+    // 这里只负责让鲑鱼大小变种的访问器尽早初始化，避免运行时懒加载带来的
+    // 数据槽编号不确定性。
+    static {
+        FutureMCEntityData.ensureEarly();
+    }
 
-    // 创建一个 ID 为 "futuremc_neoforge:example_id" 的食物物品，营养值为 1，饱和度修正值为 2
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+    // MDK 脚手架自带的示例内容（示例方块、示例物品、示例创造标签页）已经整体注释掉，
+    // 项目里不再需要这些示例。示例内容原本包括示例方块注册表 BLOCKS、
+    // 示例物品注册表 ITEMS、示例标签页注册表 CREATIVE_MODE_TABS，
+    // 以及 example_block、example_block_item、example_item、example_tab 这几项。
+    // 以后想恢复它们，把这段注释打开，并把构造方法里对应的注册调用一并打开即可。
 
-    // 为示例物品创建一个 ID 为 "futuremc_neoforge:example_tab" 的创造模式标签页，位于战斗标签页之后
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.futuremc_neoforge")).withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
-        output.accept(EXAMPLE_ITEM.get()); // 将示例物品添加到该标签页。对于你自己的标签页，此方法优先于事件
-    }).build());
-
-    // 模组类的构造方法是模组被加载时最先运行的代码。
-    // FML 会自动识别 IEventBus、ModContainer 等参数类型并自动注入。
+    // 构造方法在模组加载时最先执行，FML 会自动把事件总线和容器等参数注入进来。
     public Futuremc_neoforge(IEventBus modEventBus, ModContainer modContainer) {
-        // 注册 commonSetup 方法，用于模组加载
+        // 注册 commonSetup 方法，模组加载阶段会调用它做一次性的通用初始化。
         modEventBus.addListener(this::commonSetup);
 
-        // 将延迟注册表注册到模组事件总线，以便方块完成注册
-        BLOCKS.register(modEventBus);
-        // 将延迟注册表注册到模组事件总线，以便物品完成注册
-        ITEMS.register(modEventBus);
-        // 将延迟注册表注册到模组事件总线，以便标签页完成注册
-        CREATIVE_MODE_TABS.register(modEventBus);
+        // MDK 脚手架的示例注册表注册（与上面被注释的示例内容配套，同样已注释）。
+        // BLOCKS.register(modEventBus);
+        // ITEMS.register(modEventBus);
+        // CREATIVE_MODE_TABS.register(modEventBus);
 
-        // 注册本类以监听我们感兴趣的服务器及其他游戏事件。
-        // 注意：仅当我们希望本类（Futuremc_neoforge）直接响应事件时才需要这一行。
-        // 如果本类中没有带 @SubscribeEvent 注解的方法（如下面的 onServerStarting()），请不要添加这一行。
+        // 注册 FutureMC 移植内容用到的三个注册表。
+        // 刷怪笼的五个独立音效事件，分别是破坏、脚步、放置、敲击和摔落。
+        ModSoundEvents.SOUND_EVENTS.register(modEventBus);
+        // 两个新旗帜图案物品，分别是棱纹旗帜图案和锯齿边旗帜图案。
+        ModItems.ITEMS.register(modEventBus);
+        // 随身包染色这个特殊合成配方所使用的序列化器。
+        ModRecipes.RECIPE_SERIALIZERS.register(modEventBus);
+
+        // 把本类注册到 NeoForge 的游戏事件总线上，这样下面的 onServerStarting 才会被调用。
         NeoForge.EVENT_BUS.register(this);
 
-        // 将物品注册到创造模式标签页
+        // 注册 addCreative 方法，创造模式标签页构建时会回调它，把新内容放进对应标签页。
         modEventBus.addListener(this::addCreative);
 
-        // 注册本模组的配置规范（ModConfigSpec），让 FML 为我们创建并加载配置文件
+        // 注册本模组的配置规范，FML 会据此创建并加载配置文件（对应 Config.java）。
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
+    // 模组加载阶段的通用初始化。示例日志已经注释掉，当前没有需要在这里执行的内容。
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // 一些通用设置代码
-        LOGGER.info("HELLO FROM COMMON SETUP");
-
-        if (Config.logDirtBlock) LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        // MDK 脚手架示例日志（已注释）。
+        // LOGGER.info("HELLO FROM COMMON SETUP");
+        // if (Config.logDirtBlock) LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
+        // LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
+        // Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
-    // 将示例方块物品添加到建筑方块标签页
+    // 把 1.21.2 移植的内容放进对应的创造模式标签页。
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
+        // MDK 脚手架示例：把示例方块物品放进建筑方块标签页（已注释）。
+        // if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
+        // 随身包在 1.21.2 正式脱离实验玩法，而 1.21.1 的创造栏还受实验性开关门控，
+        // 所以在这里直接把它加进工具与实用物品标签页，让玩家可以正常拿到。
+        // 整个收纳袋体系（普通 + 16 色变种）都使用 futuremc 命名空间，不占用原版
+        // minecraft:bundle；1.21.2 的 16 种染色收纳袋变种也放在同一页，排在一起。
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.BUNDLE);
+            event.accept(ModItems.BLACK_BUNDLE);
+            event.accept(ModItems.BLUE_BUNDLE);
+            event.accept(ModItems.BROWN_BUNDLE);
+            event.accept(ModItems.CYAN_BUNDLE);
+            event.accept(ModItems.GRAY_BUNDLE);
+            event.accept(ModItems.GREEN_BUNDLE);
+            event.accept(ModItems.LIGHT_BLUE_BUNDLE);
+            event.accept(ModItems.LIGHT_GRAY_BUNDLE);
+            event.accept(ModItems.LIME_BUNDLE);
+            event.accept(ModItems.MAGENTA_BUNDLE);
+            event.accept(ModItems.ORANGE_BUNDLE);
+            event.accept(ModItems.PINK_BUNDLE);
+            event.accept(ModItems.PURPLE_BUNDLE);
+            event.accept(ModItems.RED_BUNDLE);
+            event.accept(ModItems.WHITE_BUNDLE);
+            event.accept(ModItems.YELLOW_BUNDLE);
+        }
+        // 棱纹旗帜图案和锯齿边旗帜图案都是材料类物品，放进材料标签页，
+        // 与原版的其他旗帜图案物品放在同一页。
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.FIELD_MASONED_BANNER_PATTERN);
+            event.accept(ModItems.BORDURE_INDENTED_BANNER_PATTERN);
+        }
     }
 
-    // 你可以使用 SubscribeEvent，让事件总线自动发现需要调用的方法
+    // 服务器启动时会回调这个方法。示例日志已经注释掉，当前没有需要执行的内容。
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // 在服务器启动时执行某些操作
-        LOGGER.info("HELLO from server starting");
+        // MDK 脚手架示例日志（已注释）。
+        // LOGGER.info("HELLO from server starting");
     }
 
-    // 你可以使用 EventBusSubscriber 自动注册该类中所有带 @SubscribeEvent 注解的静态方法
+    // 客户端专用的模组事件订阅类，里面所有带 SubscribeEvent 注解的静态方法都会被自动注册。
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+        // 客户端设置阶段会回调这个方法。示例日志已经注释掉，当前没有需要执行的内容。
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // 一些客户端设置代码
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            // MDK 脚手架示例日志（已注释）。
+            // LOGGER.info("HELLO FROM CLIENT SETUP");
+            // LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
 }

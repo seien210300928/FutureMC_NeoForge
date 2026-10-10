@@ -25,7 +25,8 @@ public class Config {
     public static final ModConfigSpec.ConfigValue<String> MAGIC_NUMBER_INTRODUCTION = BUILDER.comment("What you want the introduction message to be for the magic number").define("magicNumberIntroduction", "The magic number is... ");
 
     // 一个字符串列表，其中的字符串会被视为物品的资源位置（ResourceLocation）
-    private static final ModConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER.comment("A list of items to log on common setup.").defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), Config::validateItemName);
+    // NeoForge 21.1.1 起 defineListAllowEmpty 已弃用，改用签名相同的 defineList。
+    private static final ModConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER.comment("A list of items to log on common setup.").defineList("items", List.of("minecraft:iron_ingot"), Config::validateItemName);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 

@@ -1,0 +1,8 @@
+{
+  "type": "futuremc:crafting_transmute",
+  "category": "equipment",
+  "group": "bundle_dye",
+  "input": "#futuremc:bundles",
+  "material": "minecraft:cyan_dye",
+  "result": "futuremc:cyan_bundle"
+}
