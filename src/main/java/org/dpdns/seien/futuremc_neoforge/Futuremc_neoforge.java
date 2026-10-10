@@ -56,7 +56,7 @@ public class Futuremc_neoforge {
         ModSoundEvents.SOUND_EVENTS.register(modEventBus);
         // 两个新旗帜图案物品，分别是棱纹旗帜图案和锯齿边旗帜图案。
         ModItems.ITEMS.register(modEventBus);
-        // 随身包染色这个特殊合成配方所使用的序列化器。
+        // 收纳袋染色这个特殊合成配方所使用的序列化器。
         ModRecipes.RECIPE_SERIALIZERS.register(modEventBus);
 
         // 把本类注册到 NeoForge 的游戏事件总线上，这样下面的 onServerStarting 才会被调用。
@@ -82,7 +82,7 @@ public class Futuremc_neoforge {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         // MDK 脚手架示例：把示例方块物品放进建筑方块标签页（已注释）。
         // if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
-        // 随身包在 1.21.2 正式脱离实验玩法，而 1.21.1 的创造栏还受实验性开关门控，
+        // 收纳袋在 1.21.2 正式脱离实验玩法，而 1.21.1 的创造栏还受实验性开关门控，
         // 所以在这里直接把它加进工具与实用物品标签页，让玩家可以正常拿到。
         // 整个收纳袋体系（普通 + 16 色变种）都使用 futuremc 命名空间，不占用原版
         // minecraft:bundle；1.21.2 的 16 种染色收纳袋变种也放在同一页，排在一起。
