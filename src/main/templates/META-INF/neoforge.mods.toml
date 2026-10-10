@@ -26,7 +26,7 @@ updateJSONURL="https://raw.githubusercontent.com/seien210300928/FutureMC_NeoForg
 # 模组的"主页"网址，会显示在模组界面中
 displayURL="https://github.com/seien210300928/FutureMC_NeoForge/tree/21.2" #可选
 # 模组 JAR 包根目录中用于展示的 Logo 文件名
-#logoFile="futuremc_neoforge.png" #可选
+logoFile="pack.png" #可选
 # 显示在模组界面中的文本字段
 #credits="" #可选
 # 显示在模组界面中的文本字段
