@@ -20,6 +20,10 @@ hs_err_pid*
 # 常见工作目录
 runClient
 runServer
+runData
+runGameTestServer
 
+# 其他资源
 MC-Java-1.21.2至26.3新内容与NeoForge源码参考.html
 mc
+1.21.2移植说明.md

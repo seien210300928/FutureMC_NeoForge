@@ -35,6 +35,8 @@ neoForge {
     runs {
         client {
             client()
+            //运行路径
+            gameDirectory = project.file('runClient')
 
             // 逗号分隔的命名空间列表，用于指定从哪些命名空间加载游戏测试。留空 = 所有命名空间。
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
@@ -42,6 +44,10 @@ neoForge {
 
         server {
             server()
+
+            //运行路径
+            gameDirectory = project.file('runServer')
+
             programArgument '--nogui'
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
@@ -50,13 +56,17 @@ neoForge {
         // 默认情况下，如果没有提供任何游戏测试，服务器会崩溃。
         // 对于其他运行配置，游戏测试系统也会在 /test 命令下默认启用。
         gameTestServer {
+            //运行路径
+            gameDirectory = project.file('runGameTestServer')
+
             type = "gameTestServer"
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         data {
             data()
-
+            //运行路径
+            gameDirectory = project.file('runData')
             // 覆盖上方 configureEach 中设置的工作目录（workingDirectory）的示例，如需使用请取消注释
             // gameDirectory = project.file('run-data')
 
