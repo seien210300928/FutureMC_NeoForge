@@ -1,5 +1,10 @@
 package org.dpdns.seien.futuremc_neoforge;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -11,12 +16,17 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import org.dpdns.seien.futuremc_neoforge.futuremc.ModItems;
-import org.dpdns.seien.futuremc_neoforge.futuremc.ModRecipes;
-import org.dpdns.seien.futuremc_neoforge.futuremc.ModSoundEvents;
-import org.dpdns.seien.futuremc_neoforge.futuremc.entity.FutureMCEntityData;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModRecipes;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.entity.FutureMCEntityData;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModBlockEntities;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModBlocks;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModEntities;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModItems;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModSoundEvents;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModTreeDecorators;
 
 // 模组入口类。这里的模组 ID 必须与 META-INF/neoforge.mods.toml 中的条目保持一致，
 // FML 会按照注解里的 ID 找到这个类并加载它。
@@ -53,11 +63,25 @@ public class Futuremc_neoforge {
 
         // 注册 FutureMC 移植内容用到的三个注册表。
         // 刷怪笼的五个独立音效事件，分别是破坏、脚步、放置、敲击和摔落。
-        ModSoundEvents.SOUND_EVENTS.register(modEventBus);
+        org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModSoundEvents.SOUND_EVENTS.register(modEventBus);
         // 两个新旗帜图案物品，分别是棱纹旗帜图案和锯齿边旗帜图案。
-        ModItems.ITEMS.register(modEventBus);
+        org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.ITEMS.register(modEventBus);
         // 收纳袋染色这个特殊合成配方所使用的序列化器。
         ModRecipes.RECIPE_SERIALIZERS.register(modEventBus);
+
+        // 注册 Garden Awakens（1.21.4）移植内容的六个注册表。
+        // 苍白系方块、树脂、嘎吱之心、眼眸花等全部方块。
+        ModBlocks.BLOCKS.register(modEventBus);
+        // 上述方块对应的物品与苍白橡木船/箱子船、嘎吱刷怪蛋、树脂砖等独立物品。
+        ModItems.ITEMS.register(modEventBus);
+        // 嘎吱与苍白橡木船/箱子船实体。
+        ModEntities.ENTITY_TYPES.register(modEventBus);
+        // 嘎吱之心方块实体。
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        // 苍白苔藓与嘎吱之心两个树装饰器类型。
+        ModTreeDecorators.TREE_DECORATOR_TYPES.register(modEventBus);
+        // 嘎吱之心/眼眸花/苍白垂挂苔藓/树脂/嘎吱的全部声音事件。
+        ModSoundEvents.SOUND_EVENTS.register(modEventBus);
 
         // 把本类注册到 NeoForge 的游戏事件总线上，这样下面的 onServerStarting 才会被调用。
         NeoForge.EVENT_BUS.register(this);
@@ -67,6 +91,58 @@ public class Futuremc_neoforge {
 
         // 注册本模组的配置规范，FML 会据此创建并加载配置文件（对应 Config.java）。
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        // 注册版本隔离的移植内容子包：1.21.2 与 1.21.4 的数据/资产分别放在
+        // jar 的 datapacks/21_2、datapacks/21_4 与 resourcepacks/21_2、resourcepacks/21_4
+        // 里，由这里在数据包/资源包仓库创建时挂进去，alwaysActive 为 true 表示默认启用。
+        // 注册顺序：21_2 先、21_4 后，同为 TOP 位置时后注册的 21_4 层级更高；
+        // 这样 21_4 的同路径资源文件（如 assets/futuremc/sounds.json、lang 文件）作为
+        // 顶层生效（其内容已并入 1.21.2 的收纳袋语言键与刷怪笼音效事件，见合并说明）。
+        modEventBus.addListener((AddPackFindersEvent event) -> {
+            if (event.getPackType() == PackType.SERVER_DATA) {
+                // 1.21.2 子数据包：收纳袋/旗帜图案配方、刷怪笼与鲑鱼相关的
+                // damage_type、配方序列化器数据与标签（原主包 data 整体迁入）。
+                event.addPackFinders(
+                    ResourceLocation.fromNamespaceAndPath(MODID, "datapacks/21_2"),
+                    PackType.SERVER_DATA,
+                    Component.literal("FutureMC 1.21.2 内容"),
+                    PackSource.BUILT_IN,
+                    true,
+                    Pack.Position.TOP
+                );
+                // 1.21.4 子数据包：苍白花园群系、世界生成、配方、掉落表与标签。
+                event.addPackFinders(
+                    ResourceLocation.fromNamespaceAndPath(MODID, "datapacks/21_4"),
+                    PackType.SERVER_DATA,
+                    Component.literal("FutureMC 1.21.4 Garden Awakens 内容"),
+                    PackSource.BUILT_IN,
+                    true,
+                    Pack.Position.TOP
+                );
+            }
+            // 客户端的版本隔离资源子包同理：1.21.4 的模型、贴图、方块状态、声音
+            // 与语言文件放在 resourcepacks/21_4，1.21.2 的语言文件与刷怪笼音效放在
+            // resourcepacks/21_2。同一路径的文件由资源包机制取最高层级的那份，
+            // 因此 21_4 包内的 sounds.json 与语言文件已并入 1.21.2 的对应键。
+            if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+                event.addPackFinders(
+                    ResourceLocation.fromNamespaceAndPath(MODID, "resourcepacks/21_2"),
+                    PackType.CLIENT_RESOURCES,
+                    Component.literal("FutureMC 1.21.2 资产"),
+                    PackSource.BUILT_IN,
+                    true,
+                    Pack.Position.TOP
+                );
+                event.addPackFinders(
+                    ResourceLocation.fromNamespaceAndPath(MODID, "resourcepacks/21_4"),
+                    PackType.CLIENT_RESOURCES,
+                    Component.literal("FutureMC 1.21.4 Garden Awakens 资产"),
+                    PackSource.BUILT_IN,
+                    true,
+                    Pack.Position.TOP
+                );
+            }
+        });
     }
 
     // 模组加载阶段的通用初始化。示例日志已经注释掉，当前没有需要在这里执行的内容。
@@ -87,29 +163,82 @@ public class Futuremc_neoforge {
         // 整个收纳袋体系（普通 + 16 色变种）都使用 futuremc 命名空间，不占用原版
         // minecraft:bundle；1.21.2 的 16 种染色收纳袋变种也放在同一页，排在一起。
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(ModItems.BUNDLE);
-            event.accept(ModItems.BLACK_BUNDLE);
-            event.accept(ModItems.BLUE_BUNDLE);
-            event.accept(ModItems.BROWN_BUNDLE);
-            event.accept(ModItems.CYAN_BUNDLE);
-            event.accept(ModItems.GRAY_BUNDLE);
-            event.accept(ModItems.GREEN_BUNDLE);
-            event.accept(ModItems.LIGHT_BLUE_BUNDLE);
-            event.accept(ModItems.LIGHT_GRAY_BUNDLE);
-            event.accept(ModItems.LIME_BUNDLE);
-            event.accept(ModItems.MAGENTA_BUNDLE);
-            event.accept(ModItems.ORANGE_BUNDLE);
-            event.accept(ModItems.PINK_BUNDLE);
-            event.accept(ModItems.PURPLE_BUNDLE);
-            event.accept(ModItems.RED_BUNDLE);
-            event.accept(ModItems.WHITE_BUNDLE);
-            event.accept(ModItems.YELLOW_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.BLACK_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.BLUE_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.BROWN_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.CYAN_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.GRAY_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.GREEN_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.LIGHT_BLUE_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.LIGHT_GRAY_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.LIME_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.MAGENTA_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.ORANGE_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.PINK_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.PURPLE_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.RED_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.WHITE_BUNDLE);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.YELLOW_BUNDLE);
         }
         // 棱纹旗帜图案和锯齿边旗帜图案都是材料类物品，放进材料标签页，
         // 与原版的其他旗帜图案物品放在同一页。
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.FIELD_MASONED_BANNER_PATTERN);
-            event.accept(ModItems.BORDURE_INDENTED_BANNER_PATTERN);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.FIELD_MASONED_BANNER_PATTERN);
+            event.accept(org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModItems.BORDURE_INDENTED_BANNER_PATTERN);
+        }
+
+        // Garden Awakens（1.21.4）内容的创造标签页分布，按 1.21.4 原版的分类习惯：
+        // 建筑方块页：木板/楼梯/台阶/栅栏与树脂砖家族。
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModItems.PALE_OAK_PLANKS);
+            event.accept(ModItems.PALE_OAK_STAIRS);
+            event.accept(ModItems.PALE_OAK_SLAB);
+            event.accept(ModItems.PALE_OAK_FENCE);
+            event.accept(ModItems.RESIN_BLOCK);
+            event.accept(ModItems.RESIN_BRICKS);
+            event.accept(ModItems.CHISELED_RESIN_BRICKS);
+            event.accept(ModItems.RESIN_BRICK_STAIRS);
+            event.accept(ModItems.RESIN_BRICK_SLAB);
+            event.accept(ModItems.RESIN_BRICK_WALL);
+        }
+        // 自然方块页：原木/木块/树叶/树苗/苔藓/眼眸花。
+        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+            event.accept(ModItems.PALE_OAK_LOG);
+            event.accept(ModItems.PALE_OAK_WOOD);
+            event.accept(ModItems.STRIPPED_PALE_OAK_LOG);
+            event.accept(ModItems.STRIPPED_PALE_OAK_WOOD);
+            event.accept(ModItems.PALE_OAK_LEAVES);
+            event.accept(ModItems.PALE_OAK_SAPLING);
+            event.accept(ModItems.PALE_MOSS_BLOCK);
+            event.accept(ModItems.PALE_MOSS_CARPET);
+            event.accept(ModItems.PALE_HANGING_MOSS);
+            event.accept(ModItems.OPEN_EYEBLOSSOM);
+            event.accept(ModItems.CLOSED_EYEBLOSSOM);
+        }
+        // 功能方块页：告示牌与嘎吱之心。
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(ModItems.PALE_OAK_SIGN);
+            event.accept(ModItems.PALE_OAK_HANGING_SIGN);
+            event.accept(ModItems.CREAKING_HEART);
+        }
+        // 红石方块页：门/活板门/压力板/按钮/栅栏门。
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(ModItems.PALE_OAK_DOOR);
+            event.accept(ModItems.PALE_OAK_TRAPDOOR);
+            event.accept(ModItems.PALE_OAK_PRESSURE_PLATE);
+            event.accept(ModItems.PALE_OAK_BUTTON);
+            event.accept(ModItems.PALE_OAK_FENCE_GATE);
+        }
+        // 材料页：树脂砖材料与树脂簇（按 26.3 分类习惯，树脂属原材料而非自然方块）。
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.RESIN_BRICK);
+            event.accept(ModItems.RESIN_CLUMP);
+        }
+        // 工具与实用物品页：两种苍白橡木船。
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.PALE_OAK_BOAT);
+            event.accept(ModItems.PALE_OAK_CHEST_BOAT);
         }
     }
 

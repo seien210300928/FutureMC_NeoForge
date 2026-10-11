@@ -4,18 +4,22 @@
   "package": "org.dpdns.seien.futuremc_neoforge.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "FutureMCAgeableMixin",
-    "FutureMCAgeableBehaviorMixin",
-    "FutureMCSpawnMixin",
-    "FutureMCSetBabyMixin",
-    "FutureMCBlockSoundMixin",
-    "FutureMCMaceMixin",
-    "FutureMCEnderPearlPlayerMixin",
-    "FutureMCEnderPearlMixin",
-    "FutureMCSlimeBlockMixin"
+    "v21_2.FutureMCAgeableMixin",
+    "v21_2.FutureMCAgeableBehaviorMixin",
+    "v21_2.FutureMCSpawnMixin",
+    "v21_2.FutureMCSetBabyMixin",
+    "v21_2.FutureMCBlockSoundMixin",
+    "v21_2.FutureMCMaceMixin",
+    "v21_2.FutureMCEnderPearlPlayerMixin",
+    "v21_2.FutureMCEnderPearlMixin",
+    "v21_2.FutureMCSlimeBlockMixin",
+    "v21_4.FutureMCPaleGardenBiomeMixin",
+    "v21_4.FutureMCLocateBiomeMixin",
+    "v21_4.FutureMCBootstrapRegistryMixin",
+    "v21_4.FutureMCBlockEntityTypeMixin"
   ],
   "client": [
-    "FutureMCBabyRendererMixin"
+    "v21_2.FutureMCBabyRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

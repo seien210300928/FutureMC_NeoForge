@@ -24,7 +24,7 @@ displayName = "${mod_name}" #必填
 # 发布时把 update.json 推到仓库根目录后即可生效；如托管在其他位置请同步修改此地址。
 updateJSONURL="https://raw.githubusercontent.com/seien210300928/FutureMC_NeoForge/master/update.json" #可选
 # 模组的"主页"网址，会显示在模组界面中
-displayURL="https://github.com/seien210300928/FutureMC_NeoForge" #可选
+displayURL="https://github.com/seien210300928/FutureMC_NeoForge/update.json" #可选
 # 模组 JAR 包根目录中用于展示的 Logo 文件名
 logoFile="pack.png" #可选
 # 显示在模组界面中的文本字段
