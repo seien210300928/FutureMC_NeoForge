@@ -12,11 +12,7 @@
     "v21_2.FutureMCMaceMixin",
     "v21_2.FutureMCEnderPearlPlayerMixin",
     "v21_2.FutureMCEnderPearlMixin",
-    "v21_2.FutureMCSlimeBlockMixin",
-    "v21_4.FutureMCPaleGardenBiomeMixin",
-    "v21_4.FutureMCLocateBiomeMixin",
-    "v21_4.FutureMCBootstrapRegistryMixin",
-    "v21_4.FutureMCBlockEntityTypeMixin"
+    "v21_2.FutureMCSlimeBlockMixin"
   ],
   "client": [
     "v21_2.FutureMCBabyRendererMixin"
