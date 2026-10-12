@@ -2,8 +2,8 @@ package org.dpdns.seien.futuremc_neoforge.mixin.v21_2;
 
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Mob;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.entity.FutureMCAgeable;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.entity.FutureMCEntityData;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.aquatic.FutureMCAgeable;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.aquatic.FutureMCEntityData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

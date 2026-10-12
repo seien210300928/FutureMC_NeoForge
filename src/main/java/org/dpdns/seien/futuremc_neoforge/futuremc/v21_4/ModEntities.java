@@ -5,9 +5,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.entity.Creaking;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.entity.boat.PaleOakBoat;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.entity.boat.PaleOakChestBoat;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.creaking.Creaking;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.pale_oak.PaleOakBoat;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.pale_oak.PaleOakChestBoat;
 
 /**
  * Garden Awakens（1.21.4）的实体类型注册表。

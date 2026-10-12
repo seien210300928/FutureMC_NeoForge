@@ -4,7 +4,7 @@ import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.entity.Creaking;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.creaking.Creaking;
 
 /**
  * Garden Awakens（1.21.4）内容的通用初始化。

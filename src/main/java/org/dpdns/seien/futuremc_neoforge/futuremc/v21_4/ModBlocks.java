@@ -39,13 +39,13 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.block.CreakingHeartBlock;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.block.EyeblossomBlock;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.block.PaleHangingMossBlock;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.block.PaleMossBlock;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.block.PottedEyeblossomBlock;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.block.ResinClumpBlock;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.block.StrippableLogBlock;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.creaking.CreakingHeartBlock;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.eyeblossom.EyeblossomBlock;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.pale_oak.PaleHangingMossBlock;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.pale_oak.PaleMossBlock;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.eyeblossom.PottedEyeblossomBlock;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.resin.ResinClumpBlock;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.pale_oak.StrippableLogBlock;
 
 /**
  * Garden Awakens（1.21.4 苍白花园系列）的方块注册表。

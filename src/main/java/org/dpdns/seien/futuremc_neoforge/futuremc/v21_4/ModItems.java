@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.pale_oak.PaleOakBoatItem;
 
 /**
  * Garden Awakens（1.21.4 苍白花园系列）的物品注册表。

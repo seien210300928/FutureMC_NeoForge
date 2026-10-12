@@ -10,9 +10,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModEntities;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.client.model.CreakingModel;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.client.renderer.entity.CreakingRenderer;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.client.renderer.entity.PaleOakBoatRenderer;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.creaking.CreakingModel;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.creaking.CreakingRenderer;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.pale_oak.PaleOakBoatRenderer;
 
 /**
  * Garden Awakens（1.21.4）内容的客户端初始化。

@@ -12,7 +12,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.recipe.TransmuteRecipe;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.transmute.TransmuteRecipe;
 import org.dpdns.seien.futuremc_neoforge.futuremc.FutureMC;
 
 // 自定义合成配方序列化器的注册类。

@@ -20,7 +20,7 @@ import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.ModRecipes;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.entity.FutureMCEntityData;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.aquatic.FutureMCEntityData;
 import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModBlockEntities;
 import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModBlocks;
 import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.ModEntities;

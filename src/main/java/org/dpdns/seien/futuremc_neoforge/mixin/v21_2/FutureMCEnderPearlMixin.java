@@ -9,7 +9,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.projectile.ThrownEnderpearl;
 import net.minecraft.world.level.GameRules;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.FutureMCEnderPearlPlayerAccessor;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_2.enderpearl.FutureMCEnderPearlPlayerAccessor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.gen.Invoker;

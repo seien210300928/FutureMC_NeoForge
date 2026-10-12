@@ -4,8 +4,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.world.level.levelgen.feature.treedecorators.CreakingHeartDecorator;
-import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.world.level.levelgen.feature.treedecorators.PaleMossDecorator;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.creaking.CreakingHeartDecorator;
+import org.dpdns.seien.futuremc_neoforge.futuremc.v21_4.pale_oak.PaleMossDecorator;
 
 /**
  * Garden Awakens（1.21.4）的树装饰器类型注册表。
