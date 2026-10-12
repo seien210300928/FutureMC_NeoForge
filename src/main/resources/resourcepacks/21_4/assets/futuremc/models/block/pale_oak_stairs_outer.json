@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "futuremc:block/pale_oak_planks",
+    "side": "futuremc:block/pale_oak_planks",
+    "top": "futuremc:block/pale_oak_planks"
+  }
+}

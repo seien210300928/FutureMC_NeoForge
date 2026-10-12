@@ -1,0 +1,661 @@
+{
+ "block.resin.break": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin/resin_break1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_break2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_break3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_break4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_break5",
+    "type": "file"
+   }
+  ]
+ },
+ "block.resin.step": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin/resin_step1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_step2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_step3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_step4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_step5",
+    "type": "file"
+   }
+  ]
+ },
+ "block.resin.place": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin/resin_place1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_place2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_place3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin/resin_place4",
+    "type": "file"
+   }
+  ]
+ },
+ "block.resin.fall": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin/resin_fall",
+    "type": "file"
+   }
+  ]
+ },
+ "block.resin_bricks.break": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_break",
+    "type": "file"
+   }
+  ]
+ },
+ "block.resin_bricks.step": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_step1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_step2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_step3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_step4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_step5",
+    "type": "file"
+   }
+  ]
+ },
+ "block.resin_bricks.place": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_place1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_place2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_place3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_place4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_place5",
+    "type": "file"
+   }
+  ]
+ },
+ "block.resin_bricks.hit": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_hit1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_hit2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_hit3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_hit4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_hit5",
+    "type": "file"
+   }
+  ]
+ },
+ "block.resin_bricks.fall": {
+  "sounds": [
+   {
+    "name": "futuremc:block/resin_bricks/resin_brick_fall",
+    "type": "file"
+   }
+  ]
+ },
+ "block.creaking_heart.break": {
+  "sounds": [
+   {
+    "name": "futuremc:block/creaking_heart/break/creaking_heart_break",
+    "type": "file",
+    "volume": 0.5
+   }
+  ],
+  "subtitle": "subtitles.block.generic.break"
+ },
+ "block.creaking_heart.fall": {
+  "sounds": [
+   {
+    "name": "futuremc:block/creaking_heart/fall/creaking_heart_fall",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.generic.fall"
+ },
+ "block.creaking_heart.hit": {
+  "sounds": [
+   {
+    "name": "futuremc:block/creaking_heart/hit/creaking_heart_hit1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hit/creaking_heart_hit2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hit/creaking_heart_hit3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hit/creaking_heart_hit4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hit/creaking_heart_hit5",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.generic.hit"
+ },
+ "block.creaking_heart.hurt": {
+  "sounds": [
+   {
+    "name": "futuremc:block/creaking_heart/hurt/trail1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hurt/trail2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hurt/trail3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hurt/trail4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hurt/trail5",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hurt/trail6",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/hurt/trail7",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.creaking_heart.hurt"
+ },
+ "block.creaking_heart.idle": {
+  "sounds": [
+   {
+    "name": "futuremc:block/creaking_heart/idle/creaking_heart_idle1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/idle/creaking_heart_idle2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/idle/creaking_heart_idle3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/idle/creaking_heart_idle4",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.ambient.sound"
+ },
+ "block.creaking_heart.place": {
+  "sounds": [
+   {
+    "name": "futuremc:block/creaking_heart/place/creaking_heart_place1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/place/creaking_heart_place2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/place/creaking_heart_place3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/place/creaking_heart_place4",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.generic.place"
+ },
+ "block.creaking_heart.spawn": {
+  "sounds": [
+   {
+    "name": "futuremc:block/creaking_heart/spawnmob/creaking_heart_spawnmob",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.creaking_heart.spawn"
+ },
+ "block.creaking_heart.step": {
+  "sounds": [
+   {
+    "name": "futuremc:block/creaking_heart/step/creaking_heart_step1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/step/creaking_heart_step2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/step/creaking_heart_step3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/step/creaking_heart_step4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/step/creaking_heart_step5",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/creaking_heart/step/creaking_heart_step6",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.generic.footsteps"
+ },
+ "entity.creaking.activate": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_activate",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.activate"
+ },
+ "entity.creaking.ambient": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_idle1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_idle2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_idle3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_idle4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_idle5",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_idle6",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.ambient"
+ },
+ "entity.creaking.attack": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_attack1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_attack2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_attack3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_attack4",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.attack"
+ },
+ "entity.creaking.deactivate": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_deactivate",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.deactivate"
+ },
+ "entity.creaking.death": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_death",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.death"
+ },
+ "entity.creaking.freeze": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_freeze1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_freeze2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_freeze3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_freeze4",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.freeze"
+ },
+ "entity.creaking.spawn": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_spawn",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.spawn"
+ },
+ "entity.creaking.step": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_step1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_step2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_step3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_step4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_step5",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.generic.footsteps"
+ },
+ "entity.creaking.sway": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_sway1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_sway2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_sway3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_sway4",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.sway"
+ },
+ "entity.creaking.twitch": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_twitch",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.twitch"
+ },
+ "entity.creaking.unfreeze": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/creaking_unfreeze1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_unfreeze2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:mob/creaking/creaking_unfreeze3",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.creaking.unfreeze"
+ },
+ "entity.parrot.imitate.creaking": {
+  "sounds": [
+   {
+    "name": "futuremc:mob/creaking/parrot_imitate_creaking",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.entity.parrot.imitate.creaking"
+ },
+ "block.eyeblossom.close": {
+  "sounds": [
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_close1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_close2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_close3",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.eyeblossom.close"
+ },
+ "block.eyeblossom.close_long": {
+  "sounds": [
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_close_long",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.eyeblossom.close"
+ },
+ "block.eyeblossom.idle": {
+  "sounds": [
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_idle1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_idle2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_idle3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_idle4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_idle5",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_idle6",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.ambient.sound"
+ },
+ "block.eyeblossom.open": {
+  "sounds": [
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_open1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_open2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_open3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_open4",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.eyeblossom.open"
+ },
+ "block.eyeblossom.open_long": {
+  "sounds": [
+   {
+    "name": "futuremc:block/eyeblossom/eyeblossom_open_long",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.block.eyeblossom.open"
+ },
+ "block.pale_hanging_moss.idle": {
+  "sounds": [
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss1",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss2",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss3",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss4",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss5",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss6",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss7",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss8",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss9",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss10",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss11",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss12",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss13",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss14",
+    "type": "file"
+   },
+   {
+    "name": "futuremc:block/pale_hanging_moss/pale_hanging_moss15",
+    "type": "file"
+   }
+  ],
+  "subtitle": "subtitles.ambient.sound"
+ }
+}

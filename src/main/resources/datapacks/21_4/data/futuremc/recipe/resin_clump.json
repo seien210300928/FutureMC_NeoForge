@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "futuremc:resin_block"
+    }
+  ],
+  "result": {
+    "id": "futuremc:resin_clump",
+    "count": 9
+  }
+}

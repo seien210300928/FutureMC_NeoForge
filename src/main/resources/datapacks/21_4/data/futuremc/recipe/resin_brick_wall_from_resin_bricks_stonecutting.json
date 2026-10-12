@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "futuremc:resin_bricks"
+  },
+  "result": {
+    "id": "futuremc:resin_brick_wall",
+    "count": 1
+  }
+}

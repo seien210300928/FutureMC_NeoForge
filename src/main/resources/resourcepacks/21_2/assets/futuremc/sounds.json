@@ -1,38 +1,38 @@
 {
-  "block.spawner.break": {
-    "sounds": [
-      "futuremc:block/spawner/break1",
-      "futuremc:block/spawner/break2",
-      "futuremc:block/spawner/break3",
-      "futuremc:block/spawner/break4"
-    ]
-  },
-  "block.spawner.step": {
-    "sounds": [
-      "futuremc:block/spawner/step1",
-      "futuremc:block/spawner/step2",
-      "futuremc:block/spawner/step3",
-      "futuremc:block/spawner/step4",
-      "futuremc:block/spawner/step5"
-    ]
-  },
-  "block.spawner.place": {
-    "sounds": [
-      "futuremc:block/spawner/step1",
-      "futuremc:block/spawner/step2",
-      "futuremc:block/spawner/step3"
-    ]
-  },
-  "block.spawner.hit": {
-    "sounds": [
-      "futuremc:block/spawner/break1",
-      "futuremc:block/spawner/break2"
-    ]
-  },
-  "block.spawner.fall": {
-    "sounds": [
-      "futuremc:block/spawner/step4",
-      "futuremc:block/spawner/step5"
-    ]
-  }
+ "block.spawner.break": {
+  "sounds": [
+   "futuremc:block/spawner/break1",
+   "futuremc:block/spawner/break2",
+   "futuremc:block/spawner/break3",
+   "futuremc:block/spawner/break4"
+  ]
+ },
+ "block.spawner.step": {
+  "sounds": [
+   "futuremc:block/spawner/step1",
+   "futuremc:block/spawner/step2",
+   "futuremc:block/spawner/step3",
+   "futuremc:block/spawner/step4",
+   "futuremc:block/spawner/step5"
+  ]
+ },
+ "block.spawner.place": {
+  "sounds": [
+   "futuremc:block/spawner/step1",
+   "futuremc:block/spawner/step2",
+   "futuremc:block/spawner/step3"
+  ]
+ },
+ "block.spawner.hit": {
+  "sounds": [
+   "futuremc:block/spawner/break1",
+   "futuremc:block/spawner/break2"
+  ]
+ },
+ "block.spawner.fall": {
+  "sounds": [
+   "futuremc:block/spawner/step4",
+   "futuremc:block/spawner/step5"
+  ]
+ }
 }

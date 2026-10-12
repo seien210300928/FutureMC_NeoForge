@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "futuremc:pale_moss_carpet",
+              "properties": {
+                "bottom": "true"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "futuremc:pale_moss_carpet"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "futuremc:blocks/pale_moss_carpet"
+}

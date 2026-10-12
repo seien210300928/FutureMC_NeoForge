@@ -1,0 +1,7 @@
+{
+ "parent": "minecraft:block/mossy_carpet_side",
+ "textures": {
+  "side": "futuremc:block/pale_moss_carpet_side_tall"
+ },
+ "render_type": "minecraft:cutout"
+}

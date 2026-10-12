@@ -1,0 +1,109 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "futuremc:resin_clump",
+                  "properties": {
+                    "down": "true"
+                  }
+                }
+              ],
+              "count": 1
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "futuremc:resin_clump",
+                  "properties": {
+                    "up": "true"
+                  }
+                }
+              ],
+              "count": 1
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "futuremc:resin_clump",
+                  "properties": {
+                    "north": "true"
+                  }
+                }
+              ],
+              "count": 1
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "futuremc:resin_clump",
+                  "properties": {
+                    "south": "true"
+                  }
+                }
+              ],
+              "count": 1
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "futuremc:resin_clump",
+                  "properties": {
+                    "west": "true"
+                  }
+                }
+              ],
+              "count": 1
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "futuremc:resin_clump",
+                  "properties": {
+                    "east": "true"
+                  }
+                }
+              ],
+              "count": 1
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": true,
+              "count": -1
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "futuremc:resin_clump"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "futuremc:blocks/resin_clump"
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "futuremc:pale_oak_door",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
+          "name": "futuremc:pale_oak_door"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "futuremc:blocks/pale_oak_door"
+}

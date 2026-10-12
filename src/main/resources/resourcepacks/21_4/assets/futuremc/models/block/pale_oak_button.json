@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "futuremc:block/pale_oak_planks"
+  }
+}

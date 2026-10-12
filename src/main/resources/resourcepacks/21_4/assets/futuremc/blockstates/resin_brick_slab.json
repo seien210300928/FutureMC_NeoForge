@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "futuremc:block/resin_brick_slab"
+    },
+    "type=double": {
+      "model": "futuremc:block/resin_bricks"
+    },
+    "type=top": {
+      "model": "futuremc:block/resin_brick_slab_top"
+    }
+  }
+}

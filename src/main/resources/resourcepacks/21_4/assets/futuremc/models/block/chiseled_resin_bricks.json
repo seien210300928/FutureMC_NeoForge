@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "futuremc:block/chiseled_resin_bricks"
+  }
+}
