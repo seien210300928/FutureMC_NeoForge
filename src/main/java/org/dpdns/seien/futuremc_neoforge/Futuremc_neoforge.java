@@ -240,6 +240,10 @@ public class Futuremc_neoforge {
             event.accept(ModItems.PALE_OAK_BOAT);
             event.accept(ModItems.PALE_OAK_CHEST_BOAT);
         }
+        // 刷怪蛋页：嘎吱刷怪蛋（按 26.3 分类习惯，刷怪蛋统一放进原版刷怪蛋标签页）。
+        if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept(ModItems.CREAKING_SPAWN_EGG);
+        }
     }
 
     // 服务器启动时会回调这个方法。示例日志已经注释掉，当前没有需要执行的内容。
